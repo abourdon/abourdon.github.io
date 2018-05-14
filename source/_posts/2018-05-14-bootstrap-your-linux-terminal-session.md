@@ -24,10 +24,10 @@ The [terminal-session-bootstrap] project helps you to bootstrap your Linux termi
 
 This way:
 - No more personal way to manage your Terminal session
-- **Scripts can be shared** and everyone can reused them (example [here][terminal-session-bootstrap-scripts])
-- Some **extra features** are offer to you without any effort, as:
- - Applying a **lexicographically order** when discovering bootstrap script files (useful when several scripts are dependent each others)
- - Managing **several Terminal session _profiles_**
+- **Scripts can be shared** and everyone can reused them (examples [here][terminal-session-bootstrap-scripts])
+- Some **extra features** are offered to you without any effort, as:
+    - Applying a **lexicographically order** when discovering bootstrap script files (useful when several scripts are dependent each others)
+    - Managing **several Terminal session _profiles_**
 
 Check out the [Github project][terminal-session-bootstrap] for more information!
 

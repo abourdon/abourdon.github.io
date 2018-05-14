@@ -21,7 +21,6 @@ keywords: "Aurelien, Aurélien, Bourdon, Software, Engineer"
 url: http://abourdon.github.io
 
 # google_analytics: to fill
-repo: http://github.com/abourdon/abourdon.github.io
 # disqus_shortname: "abourdon"
 # disqus_site_shortname: "abourdon"
 
@@ -46,4 +45,4 @@ navbar:
   - slug: teaching
     title: Teaching
 
-exclude: ["Gemfile", "Gemfile.lock", "package.json","README.md"]
+exclude: ["Gemfile", "Gemfile.lock", "README.md"]
