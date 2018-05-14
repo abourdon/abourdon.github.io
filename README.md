@@ -32,5 +32,5 @@ $ bundle exec rake page name="contact.md"
 To deploy:
 
 ```bash
-$ bundle exec rake
+$ bundle exec rake publish
 ```

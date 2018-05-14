@@ -19,8 +19,6 @@ CONFIG = {
   'tags' => File.join(SOURCE, "tags")
 }
 
-task default: %w[publish]
-
 desc "Generate blog files"
 task :generate do
   Jekyll::Site.new(Jekyll.configuration({
