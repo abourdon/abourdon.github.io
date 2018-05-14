@@ -21,8 +21,8 @@ keywords: "Aurelien, Aurélien, Bourdon, Software, Engineer"
 url: http://abourdon.github.io
 
 # google_analytics: to fill
-# disqus_shortname: "abourdon"
-# disqus_site_shortname: "abourdon"
+disqus_shortname: "abourdon-github-io"
+disqus_site_shortname: "abourdon-github-io"
 
 # Author settings
 author:
