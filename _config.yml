@@ -8,44 +8,42 @@ paginate: 3
 paginate_path: "/blog/page/:num/"
 comments: true
 
-source: source
+source: .
 destination: _site
 sass:
   sass_dir: _sass
   style: compressed # expanded
 
 # SEO settings
-title: end2end
-description: "A free Jekyll theme for download"
-keywords: "Jekyll, theme, free, download, SEO, blog, web"
-url: http://nandomoreira.me
-baseurl: "/end2end"
+title: Aurelien Bourdon
+description: "Aurelien Bourdon's personal website"
+keywords: "Aurelien, Aurélien, Bourdon, Software, Engineer"
+url: http://abourdon.github.io
 
-google_analytics: UA-52446115-1
-repo: http://github.com/nandomoreirame/end2end
-disqus_shortname: "nandothemes"
-disqus_site_shortname: "nandothemes"
+# google_analytics: to fill
+repo: http://github.com/abourdon/abourdon.github.io
+# disqus_shortname: "abourdon"
+# disqus_site_shortname: "abourdon"
 
 # Author settings
 author:
-  name: Fernando Moreira
-  job: Frontend Engineer
-  bio: "Enthusiast performance, responsive design and usability, always looking for the best project and good coffee."
+  name: Aurélien Bourdon
+  job: Software engineer
   thumb: /images/author.jpg
-  email: nandomoreira.me@gmail.com
-  url: https://nandomoreira.me/
-  github: https://github.com/nandomoreirame
-  twitter: https://twitter.com/umdevux
-  facebook: https://facebook.com/umdevux
-  linkedin: https://linkedin.com/in/nandomoreirame
+  thumb_icon: /images/author_mini.jpg
+  email: aurelien.bourdon@gmail.com
+  url: https://abourdon.github.io
+  github: https://github.com/abourdon
+  twitter: https://twitter.com/aurelienbourdon
+  linkedin: https://linkedin.com/in/aurelienbourdon
 
 # navbar pages
 navbar:
   - slug: about
     title: About
-  - slug: icons
-    title: Icons
   - slug: blog
     title: Blog
+  - slug: teaching
+    title: Teaching
 
-exclude: ["config.rb", "src", "Gemfile", "Gemfile.lock", "package.json","README.md", "Rakefile"]
+exclude: ["Gemfile", "Gemfile.lock", "package.json","README.md"]
