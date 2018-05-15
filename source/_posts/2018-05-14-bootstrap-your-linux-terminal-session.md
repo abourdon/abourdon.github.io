@@ -13,7 +13,8 @@ When you start a **Linux terminal session**, you always (or very very often) wan
 - Set the `PATH` variable
 - Set a proxy
 - Add aliases
-- Apply mandatory initialization process for a particular command line (e.g. for [jenv][jenv]{:target="_blank"}, [nvm][nvm]{:target="_blank"} or [rbenv][rbenv]{:target="_blank"})
+- Write a configuration file for a particular command (e.g. [vim]{:target="_blank"}'s `.vimrc`, [screen]{:target="_blank"}'s `.screenrc`)
+- Apply mandatory initialization process for a particular command line (e.g. [jenv]{:target="_blank"}, [nvm]{:target="_blank"} or [rbenv]{:target="_blank"})
 - ... _and so on_ 
 
 Even, you want to apply all those settings for a given period, and apply other ones for another, as if you wanted to deal with Terminal session _profiles_.  
@@ -33,6 +34,8 @@ Check out the [Github project][terminal-session-bootstrap]{:target="_blank"} for
 
 [terminal-session-bootstrap]: https://github.com/abourdon/terminal-session-bootstrap
 [terminal-session-bootstrap-scripts]: https://github.com/abourdon/terminal-session-bootstrap/tree/master/session-bootstrap
+[vim]: https://www.vim.org
+[screen]: https://www.gnu.org/software/screen
 [jenv]: http://www.jenv.be
 [nvm]: https://github.com/creationix/nvm
 [rbenv]: https://github.com/rbenv/rbenv
