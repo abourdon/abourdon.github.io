@@ -18,11 +18,10 @@ sass:
 title: Aurelien Bourdon
 description: "Aurelien Bourdon's personal website"
 keywords: "Aurelien, Aurélien, Bourdon, Software, Engineer"
-url: http://abourdon.github.io
+url: https://abourdon.github.io
 
 google_analytics: UA-28831376-1
-disqus_shortname: "abourdon-github-io"
-disqus_site_shortname: "abourdon-github-io"
+disqus_shortname: abourdon-github-io
 
 # Author settings
 author:
