@@ -3,7 +3,7 @@ layout: post
 title:  "Bootstrap your Linux terminal session"
 date: 2018-05-14
 comments: true
-image: http://www.emoji.co.uk/files/microsoft-emojis/travel-places-windows10/10412-rocket.png
+image: https://image.ibb.co/e7S7Dy/10412_rocket.png
 categories: linux terminal bootstrap
 ---
 
