@@ -3,11 +3,9 @@ layout: post
 title:  "Bootstrap your Linux terminal session"
 date: 2018-05-17
 comments: true
-image: https://image.ibb.co/e7S7Dy/10412_rocket.png
+image: https://image.ibb.co/cguwwJ/rocket.png
 categories: linux terminal bootstrap
 ---
-
-### We all have our own way to manage our Linux terminal session opening
 
 When you start a Linux terminal session (_aka_ shell session), you always (or very very often) want to apply some customization to it. For instance:
 - Set the `PATH` or `PS1` variable
@@ -23,7 +21,7 @@ Even, you want to apply all those settings for a given period, and apply other o
 
 The [shprofile]{:target="_blank"} tool helps you to bootstrap your shell session by managing a set of shell session profiles. A profile contains a set of scripts which are executed any time the profile is loaded. Examples of scripts can be found [here][shprofile-example-scripts].  
 
-This way, your shell session can be customized at any time, event at its opening by putting [shprofile]{:target="_blank"} at the shell session startup.
+This way, your shell session can be customized at any time, event at its opening by [putting shprofile at the shell session startup][shprofile-bootstrap-it]{:target="_blank"}.
 
 #### How does it works?
 
@@ -33,7 +31,7 @@ Each shell profile is defined by a set of scripts contained into its associated 
 
 For instance:
 
-{% highlight console %}
+{% highlight text %}
 $HOME/
     .shprofile/
         profiles/
@@ -77,13 +75,13 @@ As said above, this feature can be useful if wanted to execute `shprofile` at an
 
 Each script is a shell script and can be anything you want: exporting variables, setting the `PATH, applying a complex initialization process... **All scripts from the selected profile are executed within the current shell session**.
 
-However, **the name of a script is important**. Following its name, a script can be executed differently.
+However, **the name of a script is important**. Depending on its name, the script can be executed differently.
 
 ###### Execution oder
 
-Scripts are discovered following the lexicographical order. Then, if you want to execute `script1.sh` before anyone else, a good practice is to use a numerical prefix in its name:
+Scripts are discovered according to the lexicographical order. Then, if you want to execute `script1.sh` before anyone else, a good practice is to use a numerical prefix in its name:
 
-{% highlight console %}
+{% highlight text %}
 1-script1.sh
 {% endhighlight %}
 
@@ -97,7 +95,7 @@ Any script is by default a loading script, that is: executed when a profile is l
 
 To handle transition between profiles, there is a second type: unloading scripts. Unloading scripts are executed before loading the required profile. An unloading script must be suffixed by the keyword `-unload`:
 
-{% highlight console %}
+{% highlight text %}
 script2-unload.sh
 {% endhighlight %}
 
@@ -105,7 +103,7 @@ script2-unload.sh
 
 Of course, execution order and execution type can be combined. For instance:
 
-{% highlight console %}
+{% highlight text %}
 $HOME/
     .shprofile/
         profiles/
@@ -128,6 +126,7 @@ This way, the `1-script1-unload.sh` will be executed when leaving the `myfirstpr
 Check out the [Github project][shprofile]{:target="_blank"} for more information!
 
 [shprofile]: https://github.com/abourdon/shprofile
+[shprofile-bootstrap-it]: https://github.com/abourdon/shprofile#3-bootstrap-it
 [shprofile-example-scripts]: https://github.com/abourdon/shprofile/tree/master/examples/scripts
 [vim]: https://www.vim.org
 [screen]: https://www.gnu.org/software/screen
