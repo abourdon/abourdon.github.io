@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Bootstrap your Linux terminal session"
-date: 2018-05-17
+date: 2018-05-18
 comments: true
 image: https://image.ibb.co/cguwwJ/rocket.png
 categories: linux terminal bootstrap
@@ -23,9 +23,11 @@ The [shprofile]{:target="_blank"} tool helps you to bootstrap your shell session
 
 This way, your shell session can be customized at any time, event at its opening by [putting shprofile at the shell session startup][shprofile-bootstrap-it]{:target="_blank"}.
 
-#### How does it works?
+`shprofile` can be seen as a combined version of `/etc/profile.d` (because of its modular architecture) and `.bash_profile` (because focusing on a single user), by adding the ability to:
+- define several profiles
+- not being constraint to use a shell type specific user profile file (e.g., `.bash_profile` or `.zprofile`)
 
-##### Shell profile
+#### How does it works?
 
 Each shell profile is defined by a set of scripts contained into its associated _entry_ from the `$HOME/.shprofile/profiles` folder. An _entry_ is simply a folder that is named as the profile's name.
 
@@ -57,67 +59,13 @@ and be switched by an other one via:
 $ shprofile mysecondprofile
 {% endhighlight %}
 
-##### Keep current profile in memory
+#### Available features
 
-The current loaded profile is keeping in memory (more precisely written into a file) to be able to quickly reload it if necessary. The reload of the current profile can be done by calling `shprofile` without profile name.
-
-Thus,
-
-{% highlight console %}
-$ shprofile
-{% endhighlight %}
-
-will reload the current profile.
-
-As said above, this feature can be useful if wanted to execute `shprofile` at any shell's session opening.
-
-##### Control script execution
-
-Each script is a shell script and can be anything you want: exporting variables, setting the `PATH, applying a complex initialization process... **All scripts from the selected profile are executed within the current shell session**.
-
-However, **the name of a script is important**. Depending on its name, the script can be executed differently.
-
-###### Execution oder
-
-Scripts are discovered according to the lexicographical order. Then, if you want to execute `script1.sh` before anyone else, a good practice is to use a numerical prefix in its name:
-
-{% highlight text %}
-1-script1.sh
-{% endhighlight %}
-
-###### Execution type
-
-There are two types of scripts:
-- Loading scripts (by default)
-- Unloading scripts
-
-Any script is by default a loading script, that is: executed when a profile is loading.
-
-To handle transition between profiles, there is a second type: unloading scripts. Unloading scripts are executed before loading the required profile. An unloading script must be suffixed by the keyword `-unload`:
-
-{% highlight text %}
-script2-unload.sh
-{% endhighlight %}
-
-###### Combine naming conventions
-
-Of course, execution order and execution type can be combined. For instance:
-
-{% highlight text %}
-$HOME/
-    .shprofile/
-        profiles/
-            myfirstprofile/
-                1-script1.sh
-                1-script1-unload.sh
-                script2.sh
-                script2-unload.sh
-            mysecondprofile/
-                script3.sh
-                script4.sh
-{% endhighlight %}
-
-This way, the `1-script1-unload.sh` will be executed when leaving the `myfirstprofile`, and before the `script2-unload.sh` one.
+- Manage different shell profiles
+- Be able to define several scripts into a same profile, allowing then to modularize shell profiles' scripts (e.g., 1 script for 1 tool)
+- Apply the lexicographical order when discovering shell profiles' scripts
+- Allow to define _loading_ and _unloading_ shell profile script types to handle transition between profiles
+- Remember the current profile in use to be able to quickly reload it
 
 ### To conclude
 
