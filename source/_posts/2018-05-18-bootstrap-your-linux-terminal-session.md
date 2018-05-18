@@ -19,7 +19,7 @@ Even, you want to apply all those settings for a given period, and apply other o
 
 ### `shprofile` to the rescue
 
-The [shprofile]{:target="_blank"} tool helps you to bootstrap your shell session by managing a set of shell session profiles. A profile contains a set of scripts which are executed any time the profile is loaded. Examples of scripts can be found [here][shprofile-example-scripts].  
+I'm developing a tool, [shprofile]{:target="_blank"}, that helps you to bootstrap your shell session by managing a set of shell session profiles. A profile contains a set of scripts which are executed any time the profile is loaded. Examples of scripts can be found [here][shprofile-example-scripts].  
 
 This way, your shell session can be customized at any time, event at its opening by [putting shprofile at the shell session startup][shprofile-bootstrap-it]{:target="_blank"}.
 
