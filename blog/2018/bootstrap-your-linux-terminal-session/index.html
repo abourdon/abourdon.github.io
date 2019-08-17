@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Bootstrap your Linux terminal session</title>
+<meta name="description" content="When you start a Linux terminal session (aka shell session), you always (or very very often) want to apply some customization to it. For instance:  Set the P...">
+
+<link rel="stylesheet" href="/css/main.css">
+<link rel="canonical" href="https://abourdon.github.io/blog/2018/bootstrap-your-linux-terminal-session/">
+<link rel="alternate" type="application/rss+xml" title="Aurelien Bourdon" href="https://abourdon.github.io" />
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-28831376-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-28831376-1');
+</script>
+
+
+</head>
+<body>
+  <header class="site-header">
+  <div class="container">
+    <input type="checkbox" id="toggleNavbar">
+    <h1 class="logo"><a href="/">Aurélien <span>Bourdon</span></a></h1>
+
+    <nav class="navbar">
+      <ul>
+        <li><a href="/" title="Home">Home</a></li>
+        
+          <li><a href="/about" title="About">About</a></li>
+        
+          <li><a href="/blog" title="Blog">Blog</a></li>
+        
+          <li><a href="/teaching" title="Teaching">Teaching</a></li>
+        
+        <li><a href="/feed.xml" target="_blank"><i class="icon icon-rss"></i></a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+<main class="main-container">
+  <div class="container">
+    <article role="article" class="post">
+
+  <div class="card">
+    <header class="post-header">
+      <h1 class="post-title">Bootstrap your Linux terminal session</h1>
+      <em class="post-meta">
+        <time>May 18, 2018</time>
+      </em>
+    </header>
+
+    <div class="post-content">
+      
+        <figure class="post-thumbnail ">
+          <img src="https://image.ibb.co/cguwwJ/rocket.png" alt="Bootstrap your Linux terminal session">
+        </figure>
+      
+      <p>When you start a Linux terminal session (<em>aka</em> shell session), you always (or very very often) want to apply some customization to it. For instance:</p>
+<ul>
+  <li>Set the <code class="highlighter-rouge">PATH</code> or <code class="highlighter-rouge">PS1</code> variable</li>
+  <li>Set a proxy</li>
+  <li>Add aliases</li>
+  <li>Write a configuration file for a particular command (e.g. <a href="https://www.vim.org" target="_blank">vim</a>’s <code class="highlighter-rouge">.vimrc</code>, <a href="https://www.gnu.org/software/screen" target="_blank">screen</a>’s <code class="highlighter-rouge">.screenrc</code>)</li>
+  <li>Apply mandatory initialization process for a particular command line (e.g. <a href="http://www.jenv.be" target="_blank">jenv</a>, <a href="https://github.com/creationix/nvm" target="_blank">nvm</a> or <a href="https://github.com/rbenv/rbenv" target="_blank">rbenv</a>)</li>
+  <li>… <em>and so on</em></li>
+</ul>
+
+<p>Even, you want to apply all those settings for a given period, and apply other ones for another, as if you wanted to deal with shell session <strong>profiles</strong>.</p>
+
+<h3 id="shprofile-to-the-rescue"><code class="highlighter-rouge">shprofile</code> to the rescue</h3>
+
+<p>I’m developing a tool, <a href="https://github.com/abourdon/shprofile" target="_blank">shprofile</a>, that helps you to bootstrap your shell session by managing a set of shell session profiles. A profile contains a set of scripts which are executed any time the profile is loaded. Examples of scripts can be found <a href="https://github.com/abourdon/shprofile/tree/master/examples/scripts">here</a>.</p>
+
+<p>This way, your shell session can be customized at any time, event at its opening by <a href="https://github.com/abourdon/shprofile#3-bootstrap-it" target="_blank">putting shprofile at the shell session startup</a>.</p>
+
+<p><code class="highlighter-rouge">shprofile</code> can be seen as a combined version of <code class="highlighter-rouge">/etc/profile.d</code> (because of its modular architecture) and <code class="highlighter-rouge">.bash_profile</code> (because focusing on a single user), by adding the ability to:</p>
+<ul>
+  <li>define several profiles</li>
+  <li>not being constraint to use a shell type specific user profile file (e.g., <code class="highlighter-rouge">.bash_profile</code> or <code class="highlighter-rouge">.zprofile</code>)</li>
+</ul>
+
+<h4 id="how-does-it-works">How does it works?</h4>
+
+<p>Each shell profile is defined by a set of scripts contained into its associated <em>entry</em> from the <code class="highlighter-rouge">$HOME/.shprofile/profiles</code> folder. An <em>entry</em> is simply a folder that is named as the profile’s name.</p>
+
+<p>For instance:</p>
+
+<figure class="highlight"><pre><code class="language-text" data-lang="text">$HOME/
+    .shprofile/
+        profiles/
+            myfirstprofile/
+                script1.sh
+                script2.sh
+            mysecondprofile/
+                script3.sh
+                script4.sh    </code></pre></figure>
+
+<p>defines two profiles <code class="highlighter-rouge">myfirstprofile</code> and <code class="highlighter-rouge">mysecondprofile</code> containing respectively the <code class="highlighter-rouge">script1.sh</code>, <code class="highlighter-rouge">script2.sh</code> and the <code class="highlighter-rouge">script3.sh</code>, <code class="highlighter-rouge">script4.sh</code> scripts.</p>
+
+<p>Once a profile is defined, it can be simply loaded via:</p>
+
+<figure class="highlight"><pre><code class="language-console" data-lang="console"><span class="gp">$</span> shprofile myfirstprofile</code></pre></figure>
+
+<p>and be switched by an other one via:</p>
+
+<figure class="highlight"><pre><code class="language-console" data-lang="console"><span class="gp">$</span> shprofile mysecondprofile</code></pre></figure>
+
+<h4 id="available-features">Available features</h4>
+
+<ul>
+  <li>Manage different shell profiles</li>
+  <li>Be able to define several scripts into a same profile, allowing then to modularize shell profiles’ scripts (e.g., 1 script for 1 tool) and easily <a href="https://github.com/abourdon/shprofile/tree/master/examples/scripts" target="_blank">import or export them</a></li>
+  <li>Apply the lexicographical order when discovering shell profiles’ scripts</li>
+  <li>Allow to define <em>loading</em> and <em>unloading</em> shell profile script types to handle transition between profiles</li>
+  <li>Remember the current profile in use to be able to quickly reload it</li>
+</ul>
+
+<h3 id="to-conclude">To conclude</h3>
+
+<p><code class="highlighter-rouge">shprofile</code> is designed for those who want to get rid of personal shell session customization. It offers a modular solution to manage your shell initialization process and let you define profile to enable a specific configuration at a time.</p>
+
+<p>Check out the <a href="https://github.com/abourdon/shprofile" target="_blank">Github project</a> for more information!</p>
+
+
+    </div>
+
+    
+<hr>
+
+<aside id="comments" class="disqus">
+  <h3><i class="icon icon-comments-o"></i> Comments</h3>
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function() {
+      this.page.url = 'https://abourdon.github.io/blog/2018/bootstrap-your-linux-terminal-session/';
+      this.page.identifier = '/blog/2018/bootstrap-your-linux-terminal-session';
+    };
+    (function() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://abourdon-github-io.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</aside>
+
+  </div>
+
+</article>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <a href="/"><img src="/images/author_mini.jpg" alt="author thumb" class="dot"></a>
+    <ul class="social">
+  <li><a href="https://github.com/abourdon" target="_blank"><i class="icon icon-github"></i></a></li>
+  <li><a href="https://twitter.com/aurelienbourdon" target="_blank"><i class="icon icon-twitter"></i></a></li>
+  <li><a href="https://linkedin.com/in/aurelienbourdon" target="_blank"><i class="icon icon-linkedin"></i></a></li>
+</ul>
+    <p class="txt-medium-gray">
+      <small>&copy;2019 All rights reserved. Made with <a href="http://jekyllrb.com/" target="_blank">Jekyll</a> and <a href="https://github.com/nandomoreirame/end2end" target="_blank">end2end</a>.</small>
+    </p>
+  </div>
+</footer>
+
+
+
+</body>
+</html>

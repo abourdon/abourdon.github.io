@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Aurelien Bourdon</title>
+    <description>Aurelien Bourdon's personal website</description>
+    <link>https://abourdon.github.io/</link>
+    <atom:link href="https://abourdon.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sat, 17 Aug 2019 18:41:10 +0200</pubDate>
+    <lastBuildDate>Sat, 17 Aug 2019 18:41:10 +0200</lastBuildDate>
+    <generator>Jekyll v3.7.3</generator>
+    
+      <item>
+        <title>Bootstrap your Linux terminal session</title>
+        <description>&lt;p&gt;When you start a Linux terminal session (&lt;em&gt;aka&lt;/em&gt; shell session), you always (or very very often) want to apply some customization to it. For instance:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Set the &lt;code class=&quot;highlighter-rouge&quot;&gt;PATH&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;PS1&lt;/code&gt; variable&lt;/li&gt;
+  &lt;li&gt;Set a proxy&lt;/li&gt;
+  &lt;li&gt;Add aliases&lt;/li&gt;
+  &lt;li&gt;Write a configuration file for a particular command (e.g. &lt;a href=&quot;https://www.vim.org&quot; target=&quot;_blank&quot;&gt;vim&lt;/a&gt;’s &lt;code class=&quot;highlighter-rouge&quot;&gt;.vimrc&lt;/code&gt;, &lt;a href=&quot;https://www.gnu.org/software/screen&quot; target=&quot;_blank&quot;&gt;screen&lt;/a&gt;’s &lt;code class=&quot;highlighter-rouge&quot;&gt;.screenrc&lt;/code&gt;)&lt;/li&gt;
+  &lt;li&gt;Apply mandatory initialization process for a particular command line (e.g. &lt;a href=&quot;http://www.jenv.be&quot; target=&quot;_blank&quot;&gt;jenv&lt;/a&gt;, &lt;a href=&quot;https://github.com/creationix/nvm&quot; target=&quot;_blank&quot;&gt;nvm&lt;/a&gt; or &lt;a href=&quot;https://github.com/rbenv/rbenv&quot; target=&quot;_blank&quot;&gt;rbenv&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;… &lt;em&gt;and so on&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Even, you want to apply all those settings for a given period, and apply other ones for another, as if you wanted to deal with shell session &lt;strong&gt;profiles&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;shprofile-to-the-rescue&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;shprofile&lt;/code&gt; to the rescue&lt;/h3&gt;
+
+&lt;p&gt;I’m developing a tool, &lt;a href=&quot;https://github.com/abourdon/shprofile&quot; target=&quot;_blank&quot;&gt;shprofile&lt;/a&gt;, that helps you to bootstrap your shell session by managing a set of shell session profiles. A profile contains a set of scripts which are executed any time the profile is loaded. Examples of scripts can be found &lt;a href=&quot;https://github.com/abourdon/shprofile/tree/master/examples/scripts&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;This way, your shell session can be customized at any time, event at its opening by &lt;a href=&quot;https://github.com/abourdon/shprofile#3-bootstrap-it&quot; target=&quot;_blank&quot;&gt;putting shprofile at the shell session startup&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;shprofile&lt;/code&gt; can be seen as a combined version of &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/profile.d&lt;/code&gt; (because of its modular architecture) and &lt;code class=&quot;highlighter-rouge&quot;&gt;.bash_profile&lt;/code&gt; (because focusing on a single user), by adding the ability to:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;define several profiles&lt;/li&gt;
+  &lt;li&gt;not being constraint to use a shell type specific user profile file (e.g., &lt;code class=&quot;highlighter-rouge&quot;&gt;.bash_profile&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;.zprofile&lt;/code&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;how-does-it-works&quot;&gt;How does it works?&lt;/h4&gt;
+
+&lt;p&gt;Each shell profile is defined by a set of scripts contained into its associated &lt;em&gt;entry&lt;/em&gt; from the &lt;code class=&quot;highlighter-rouge&quot;&gt;$HOME/.shprofile/profiles&lt;/code&gt; folder. An &lt;em&gt;entry&lt;/em&gt; is simply a folder that is named as the profile’s name.&lt;/p&gt;
+
+&lt;p&gt;For instance:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;$HOME/
+    .shprofile/
+        profiles/
+            myfirstprofile/
+                script1.sh
+                script2.sh
+            mysecondprofile/
+                script3.sh
+                script4.sh    &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;defines two profiles &lt;code class=&quot;highlighter-rouge&quot;&gt;myfirstprofile&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;mysecondprofile&lt;/code&gt; containing respectively the &lt;code class=&quot;highlighter-rouge&quot;&gt;script1.sh&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;script2.sh&lt;/code&gt; and the &lt;code class=&quot;highlighter-rouge&quot;&gt;script3.sh&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;script4.sh&lt;/code&gt; scripts.&lt;/p&gt;
+
+&lt;p&gt;Once a profile is defined, it can be simply loaded via:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt; shprofile myfirstprofile&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;and be switched by an other one via:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt; shprofile mysecondprofile&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h4 id=&quot;available-features&quot;&gt;Available features&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Manage different shell profiles&lt;/li&gt;
+  &lt;li&gt;Be able to define several scripts into a same profile, allowing then to modularize shell profiles’ scripts (e.g., 1 script for 1 tool) and easily &lt;a href=&quot;https://github.com/abourdon/shprofile/tree/master/examples/scripts&quot; target=&quot;_blank&quot;&gt;import or export them&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Apply the lexicographical order when discovering shell profiles’ scripts&lt;/li&gt;
+  &lt;li&gt;Allow to define &lt;em&gt;loading&lt;/em&gt; and &lt;em&gt;unloading&lt;/em&gt; shell profile script types to handle transition between profiles&lt;/li&gt;
+  &lt;li&gt;Remember the current profile in use to be able to quickly reload it&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;to-conclude&quot;&gt;To conclude&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;shprofile&lt;/code&gt; is designed for those who want to get rid of personal shell session customization. It offers a modular solution to manage your shell initialization process and let you define profile to enable a specific configuration at a time.&lt;/p&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;https://github.com/abourdon/shprofile&quot; target=&quot;_blank&quot;&gt;Github project&lt;/a&gt; for more information!&lt;/p&gt;
+
+</description>
+        <pubDate>Fri, 18 May 2018 00:00:00 +0200</pubDate>
+        <link>https://abourdon.github.io/blog/2018/bootstrap-your-linux-terminal-session/</link>
+        <guid isPermaLink="true">https://abourdon.github.io/blog/2018/bootstrap-your-linux-terminal-session/</guid>
+        
+        
+        <category>linux</category>
+        
+        <category>terminal</category>
+        
+        <category>bootstrap</category>
+        
+      </item>
+    
+  </channel>
+</rss>

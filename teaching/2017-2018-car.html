@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>2017-2018 - Construction d'Applications Réparties - TD/TP</title>
+<meta name="description" content="Aurelien Bourdon's personal website">
+
+<link rel="stylesheet" href="/css/main.css">
+<link rel="canonical" href="https://abourdon.github.io/teaching/2017-2018-car">
+<link rel="alternate" type="application/rss+xml" title="Aurelien Bourdon" href="https://abourdon.github.io" />
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-28831376-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-28831376-1');
+</script>
+
+
+</head>
+<body>
+  <header class="site-header">
+  <div class="container">
+    <input type="checkbox" id="toggleNavbar">
+    <h1 class="logo"><a href="/">Aurélien <span>Bourdon</span></a></h1>
+
+    <nav class="navbar">
+      <ul>
+        <li><a href="/" title="Home">Home</a></li>
+        
+          <li><a href="/about" title="About">About</a></li>
+        
+          <li><a href="/blog" title="Blog">Blog</a></li>
+        
+          <li><a href="/teaching" title="Teaching">Teaching</a></li>
+        
+        <li><a href="/feed.xml" target="_blank"><i class="icon icon-rss"></i></a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+<main class="main-container">
+  <div class="container">
+    <article role="article" class="page card">
+
+  <header class="post-header">
+    <h1 class="post-title">2017-2018 - Construction d'Applications Réparties - TD/TP</h1>
+  </header>
+
+  <div class="post-content">
+    <h2 id="informations-générales">Informations générales</h2>
+
+<h3 id="liens-utiles">Liens utiles</h3>
+
+<ul>
+  <li>Lien vers la <a href="http://www.fil.univ-lille1.fr/portail/index.php?dipl=MInfo&amp;sem=S8&amp;ue=CAR&amp;label=P" target="_blank">page de présentation générale du cours</a></li>
+  <li>Liens vers <a href="http://moodle.univ-lille1.fr/course/view.php?id=346" target="_blank">les documents associés (cours, TDs, TPs) et les consignes des TPs</a> <strong>(nécessite une inscription)</strong></li>
+</ul>
+
+<h3 id="evaluation-des-tps">Evaluation des TPs</h3>
+
+<h4 id="procédure">Procédure</h4>
+
+<p>Chaque TP est évalué en deux temps :</p>
+
+<ol>
+  <li><strong>Ensemble</strong>, pour vérifier la bonne exécution de votre programme. Evaluation <em>live</em>.</li>
+  <li><strong>Après coup</strong>, pour analyser le code, les ressources et la structure de votre projet. Evaluation <em>statique</em>.</li>
+</ol>
+
+<p>Pour cela :</p>
+<ul>
+  <li>Pour les évaluations <em>lives</em> :
+    <ul>
+      <li>Elles auront lieu <strong>à chaque début de séance du TP suivant</strong> (sauf le dernier TP où l’évaluation sera faite en dernière séance).</li>
+      <li>Le programme devra être <strong>opérationnel sur les machines de l’établissement</strong>.</li>
+      <li>Bien évidemment, <strong>la présence est obligatoire</strong>.</li>
+    </ul>
+  </li>
+  <li>Pour les évaluations <em>statiques</em> :
+    <ul>
+      <li>Elles auront lieu <strong>la veille de l’évaluation <em>live</em>, à 20h00</strong>.</li>
+      <li>La récupération est automatique, ainsi : <strong>aucune autre version des sources ne sera acceptée passé cette date</strong>.</li>
+      <li>Bien évidemment, <strong>tout plagiat donnera lieu à un 0</strong> (sans compter l’écriture d’un rapport au responsable de l’UE, qui lui même en fera part aux membres du jury).</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Ces deux évaluations constituent ainsi la note finale du TP.</p>
+
+<h4 id="dates-de-rendus">Dates de rendus</h4>
+
+<p>Ci-après les dates de rendus pour les TPs :</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>TP</th>
+      <th>Evaluation <em>statique</em></th>
+      <th>Evaluation <em>live</em></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>TP 1 - Serveur FTP</td>
+      <td>Jeudi 22/02/2018, 20h00</td>
+      <td>Vendredi 23/02/2018</td>
+    </tr>
+    <tr>
+      <td>TP 2 - Passerelle REST</td>
+      <td>Jeudi 22/03/2018, 20h00</td>
+      <td>Vendredi 23/03/2018</td>
+    </tr>
+    <tr>
+      <td>TP 3 - Akka - Transfert de données</td>
+      <td>Jeudi 05/04/2018, 20h00</td>
+      <td>Vendredi 06/04/2018</td>
+    </tr>
+    <tr>
+      <td>TP 4 - Java EE</td>
+      <td>Jeudi 19/04/2018, 20h00</td>
+      <td>Vendredi 20/04/2018</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="informations-supplémentaires">Informations supplémentaires</h2>
+
+<h3 id="tp-1---serveur-ftp">TP 1 - Serveur FTP</h3>
+
+<h4 id="méthodologie-de-développement">Méthodologie de développement</h4>
+
+<p>Ci-après une proposition de méthodologie pour vous aider à la réalisation de ce TP :</p>
+
+<ol>
+  <li>Lire les instructions du TP
+    <ul>
+      <li>Ne pas se fier au nom de classes ni à l’architecture imposés dans l’ennoncé. Vous êtes libres de choisir vos noms de classes et l’architecture qui vous va le mieux. Le but étant d’obtenir une architecture la plus élégante possible. L’utilisation de <a href="https://en.wikipedia.org/wiki/Design_Patterns" target="_blank">design patterns</a> est <strong>très</strong> recommandée (rappelez-vous de votre cours de <a href="http://portail.fil.univ-lille1.fr/portail/index.php?dipl=L&amp;sem=S5&amp;ue=COO&amp;label=Pr%C3%A9sentation" target="_blank">Conception Orientée Objet</a> en L3). Notez que <strong>dans tous les cas</strong>, une documentation de l’architecture et des classes associées deva être produite (cf. <a href="http://moodle.univ-lille1.fr/course/view.php?id=346" target="_blank">consignes générales des TPs</a>).</li>
+    </ul>
+  </li>
+  <li>Lire la liste des exigences du TP
+    <ul>
+      <li>Attention : certaines commandes supplémentaires non inscrites sur les instructions du TP devront être ajoutées pour respecter l’ensemble des exigences. De plus, certaines extensions ont été ajoutées depuis l’écriture de la RFC, notamment la compatibilité de certaines commandes avec l’adressage <a href="https://en.wikipedia.org/wiki/IPv6_address" target="_blank">IPv6</a>. (cf. <a href="#tp1-live-eval-note">note sur l’évalution <em>live</em></a>)</li>
+    </ul>
+  </li>
+  <li>Lire la RFC
+    <ol>
+      <li>En connaissant au préalable les <a href="https://www.ietf.org/rfc/rfc2119.txt" target="_blank">notions d’exigences</a> lorsque l’on lit une RFC (mots clés <em>MUST</em>, <em>SHOULD</em>, <em>MAY</em>)</li>
+      <li>En connaissant au préalable le protocole TCP/IP et <a href="https://tools.ietf.org/rfc/rfc854.txt" target="_blank">la syntaxe associée au protocole Telnet</a></li>
+      <li>En se basant sur les instructions et la liste des exigences du TP, et ainsi, en ne <strong>sélectionnant qu’uniquement ce qui est nécessaire</strong> pour le développement de celui-ci (il ne s’agit pas d’implémenter la totalité de la RFC)</li>
+      <li>En partageant sa vision avec les autres membres du groupes afin de vérifier que :
+        <ol>
+          <li>Le modèle FTP est bien compris</li>
+          <li>Les différentes notions FTP sont bien comprises (types de données, connexion de commandes/données, format de réponse…)</li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+  <li>Concevoir l’implémentation
+    <ol>
+      <li>En se basant sur les spécifications (instructions et liste des exigences) du TP</li>
+      <li>En réalisant les schémas nécessaires à votre conception (diagrammes cas d’utilisation, classes, séquences…)</li>
+    </ol>
+  </li>
+  <li>Développer l’implémentation
+    <ol>
+      <li>En définissant le squelette de votre modèle</li>
+      <li>En suivant une démarche de développement (<em>e.g.,</em> <a href="https://en.wikipedia.org/wiki/Test-driven_development" target="_blank">TDD</a>). N’oubliez pas dans ce cas de préciser votre méthodologie au sein de votre <em>README.md</em>.</li>
+      <li>En se basant sur des outils facilitant votre développement :
+        <ol>
+          <li>En respectant les outils imposés :
+            <ol>
+              <li>Maven</li>
+              <li><a href="http://gitlab-etu.fil.univ-lille1.fr" target="_blank">Gitlab</a></li>
+            </ol>
+          </li>
+          <li>En ajoutant des outils supplémentaires de votre choix. Dans ce cas vous devrez justifier leurs utilisations au sein de votre <em>README.md</em>.</li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+</ol>
+
+<h4 id="note-au-sujet-de-lévaluation-live">Note au sujet de l’évaluation <em>live</em></h4>
+
+<p>L’évaluation <em>live</em> se fera avec le programme FTP client <strong>ftp</strong>, pré-installé sur vos machines. Veillez à bien vérifier le fonctionnement de votre serveur avec ce client (notamment la compatibilité avec l’adressage IPv6 non présent dans la version de votre RFC).</p>
+
+<h3 id="tp-2---passerelle-rest">TP 2 - Passerelle REST</h3>
+
+<h4 id="liens-utiles-1">Liens utiles</h4>
+
+<ul>
+  <li>Sur REST
+    <ul>
+      <li><a href="https://fr.wikipedia.org/wiki/Representational_state_transfer" target="_blank">Qu’est-ce que REST ?</a></li>
+      <li>REST en Java
+        <ul>
+          <li><a href="https://en.wikipedia.org/wiki/Java_API_for_RESTful_Web_Services" target="_blank">JAX-RS, la spécification REST en Java</a> (avec des liens sur des tutoriels) </li>
+          <li>Jersey, l’implémentation de référence de la spécification JAX-RS
+            <ul>
+              <li><a href="https://jersey.github.io/documentation/latest/getting-started.html" target="_blank"><em>Getting started</em></a></li>
+              <li><a href="https://jersey.github.io/documentation/latest/index.html" target="_blank">Documentation</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Sur HTTP
+    <ul>
+      <li><a href="https://fr.wikipedia.org/wiki/Type_MIME" target="_blank">Qu’est-ce que la notion de type MIME ?</a></li>
+      <li><a href="https://fr.wikipedia.org/wiki/Authentification_HTTP" target="_blank">Qu’est-ce que la notion d’authentification en HTTP ?</a></li>
+      <li>Des clients HTTP
+        <ul>
+          <li>En ligne de commandes: 
+            <ul>
+              <li><a href="https://curl.haxx.se/docs/httpscripting.html" target="_blank">cURL</a> (ou <code class="highlighter-rouge">man curl</code>)</li>
+              <li><a href="https://httpie.org/" target="_blank">HTTPie</a></li>
+            </ul>
+          </li>
+          <li>Via interface graphique :
+            <ul>
+              <li><a href="https://www.getpostman.com/" target="_blank">Postman</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="tp-3---akka---transfert-de-données">TP 3 - Akka - Transfert de données</h3>
+
+<h4 id="avant-de-commencer-le-tp">Avant de commencer le TP</h4>
+
+<ol>
+  <li>Suivez <a href="https://developer.lightbend.com/guides/akka-quickstart-java/" target="_blank">ce tutoriel</a></li>
+  <li>Puis vous pourrez aller plus loin en suivant <a href="https://doc.akka.io/docs/akka/2.5/guide/introduction.html" target="_blank">ce tutoriel</a> en insistant sur :
+    <ol>
+      <li><a href="https://doc.akka.io/docs/akka/current/guide/actors-motivation.html" target="_blank">ceci</a></li>
+      <li>et <a href="https://doc.akka.io/docs/akka/current/guide/actors-intro.html" target="_blank">cela</a></li>
+    </ol>
+  </li>
+  <li>Et pour résumer le tout, lisez <a href="http://researchers.lille.inria.fr/abourdon/courses/car/akka.pdf" target="_blank">ces slides</a> (merci à <a href="https://pro.univ-lille.fr/clement-quinton" target="_blank">Clément Quinton</a>)</li>
+</ol>
+
+<p>A la fin, vous devriez comprendre :</p>
+
+<ul>
+  <li>Ce qu’est le modèle d’acteur</li>
+  <li>En quoi ce modèle se rapproche et se différentie du paradigme orienté objet</li>
+  <li>Comment ce modèle résout les problématiques d’accès concurentiels lors de traitements parallèles</li>
+</ul>
+
+<h4 id="pendant-le-tp">Pendant le TP</h4>
+
+<p>Ne pas utiliser l’archive <del>car-tp3.zip</del> disponible sur Moodle mais <strong>générer le squelette de votre projet à l’aide du <a href="https://developer.lightbend.com/start/?group=akka&amp;project=akka-quickstart-java" target="_blank">générateur officiel</a></strong>.</p>
+
+<p>Encore une fois, lisez les instructions <strong>et</strong> les exigences du TP en sachant que, comme d’habitude, les exigences serviront de base pour l’évaluation.</p>
+
+<h3 id="séance-de-questions-ouvertes">Séance de questions ouvertes</h3>
+
+<p>Le support de la séance de questions ouvertes peut être téléchargé <a href="/teaching/2017-2018-car-open-questions.pdf" target="_blank">ici</a>.</p>
+
+  </div>
+
+</article>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <a href="/"><img src="/images/author_mini.jpg" alt="author thumb" class="dot"></a>
+    <ul class="social">
+  <li><a href="https://github.com/abourdon" target="_blank"><i class="icon icon-github"></i></a></li>
+  <li><a href="https://twitter.com/aurelienbourdon" target="_blank"><i class="icon icon-twitter"></i></a></li>
+  <li><a href="https://linkedin.com/in/aurelienbourdon" target="_blank"><i class="icon icon-linkedin"></i></a></li>
+</ul>
+    <p class="txt-medium-gray">
+      <small>&copy;2019 All rights reserved. Made with <a href="http://jekyllrb.com/" target="_blank">Jekyll</a> and <a href="https://github.com/nandomoreirame/end2end" target="_blank">end2end</a>.</small>
+    </p>
+  </div>
+</footer>
+
+
+
+</body>
+</html>
